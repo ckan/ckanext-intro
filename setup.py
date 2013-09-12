@@ -26,6 +26,6 @@ setup(
 	"""
         [ckan.plugins]
 	# Add plugins here, eg
-	# myplugin=ckanext.intro:PluginClass
+	intro_plugin=ckanext.intro.plugin:IntroExamplePlugin
 	""",
 )
