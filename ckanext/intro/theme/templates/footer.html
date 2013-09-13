@@ -1,0 +1,16 @@
+{% ckan_extends %}
+
+{% block footer_links %}
+
+  <img src="http://placekitten.com/g/100/60" alt="Some cats" />
+
+{% endblock %}
+
+{% block footer_links_ckan %}
+
+  {{ super() }}
+
+  <li><a href="">Some link</a></li>
+  <li><a href="">Another link</a></li>
+
+{% endblock %}

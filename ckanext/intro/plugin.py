@@ -24,3 +24,7 @@ class IntroExamplePlugin(p.SingletonPlugin):
         #   p.toolkit.require_ckan_version('2.1')
         if not p.toolkit.check_ckan_version('2.1'):
             log.warn('This extension has only been tested on CKAN 2.1!')
+
+        # Add the extension templates directory so it overrides the CKAN core
+        # one
+        p.toolkit.add_template_directory(config, 'theme/templates')
