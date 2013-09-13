@@ -10,6 +10,7 @@ class IntroExamplePlugin(p.SingletonPlugin):
 
     p.implements(p.IConfigurer)
     p.implements(p.IRoutes, inherit=True)
+    p.implements(p.IAuthFunctions)
 
     ## IConfigurer
     def update_config(self, config):
@@ -40,6 +41,22 @@ class IntroExamplePlugin(p.SingletonPlugin):
         map.connect('/custom', controller=controller, action='custom_page')
 
         return map
+
+    ## IAuthFunctions
+    def get_auth_functions(self):
+
+        # Return a dict with the auth functions that we want to override
+        return {
+            'group_create': group_create,
+        }
+
+
+def group_create(context, data_dict):
+    '''
+    This function overrides the default group_create authorization,
+    not allowing anyone (except sysadmins) to create groups
+    '''
+    return {'success': False, 'msg': 'Only sysadmins can create groups'}
 
 
 class CustomController(p.toolkit.BaseController):
