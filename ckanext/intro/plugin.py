@@ -18,3 +18,9 @@ class IntroExamplePlugin(p.SingletonPlugin):
 
         log.info('You are using the following plugins: {0}'
                  .format(config.get('ckan.plugins')))
+
+        # Check CKAN version
+        # To raise an exception instead, use:
+        #   p.toolkit.require_ckan_version('2.1')
+        if not p.toolkit.check_ckan_version('2.1'):
+            log.warn('This extension has only been tested on CKAN 2.1!')
