@@ -1,0 +1,16 @@
+{% ckan_extends %}
+
+
+{% block secondary_content %}
+
+  {{ super() }}
+
+  <section class="module module-narrow changelog ">
+  <h2 class="module-heading"><i class="icon-medium icon-cog"></i> {{ _('Changelog') }}</h2>
+    <ul class="nav nav-simple">
+      <li class="nav-item">Created: {{ h.time_ago_in_words_from_str(pkg.metadata_created, granularity='minute') }} ago</li>
+      <li class="nav-item">Last modified: {{ h.time_ago_in_words_from_str(pkg.metadata_modified, granularity='minute') }} ago</li>
+    </ul>
+  </section>
+
+{% endblock %}
