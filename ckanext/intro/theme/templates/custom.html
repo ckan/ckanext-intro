@@ -1,0 +1,25 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('Custom page') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('Custom page'), controller='ckanext.intro.plugin:CustomController', action='custom_page' %}</li>
+{% endblock %}
+
+{% block primary %}
+  <article class="module">
+    <div class="module-content">
+      <h1 class="page-heading">{{ _('Custom page') }}</h1>
+
+      <p>This is a custom page for your instance, displaying an image served from your extension public folder</p>
+
+      <div>
+        <img src="/images/sloth.jpg" alt="Just a sloth" />
+        <p> Photo by <a href="http://www.flickr.com/photos/asirap/">asirap</a> CC BY-NC-SA</p>
+      </div>
+
+    </div>
+  </article>
+{% endblock %}
+
+{% block secondary %}{% endblock %}
